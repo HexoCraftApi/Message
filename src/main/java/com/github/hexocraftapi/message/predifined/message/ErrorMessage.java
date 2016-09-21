@@ -17,10 +17,13 @@ package com.github.hexocraftapi.message.predifined.message;
  */
 
 import com.github.hexocraftapi.message.predifined.MessageColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
+
+import static sun.audio.AudioPlayer.player;
 
 /**
  * @author <b>hexosse</b> (<a href="https://github.comp/hexosse">hexosse on GitHub</a>))
@@ -41,5 +44,15 @@ public class ErrorMessage extends SimpleMessage
 	public static void toPlayer(Player player, String sentence)
 	{
 		new ErrorMessage(sentence).send(player);
+	}
+
+	public static void toSender(CommandSender sender, String sentence)
+	{
+		new ErrorMessage(sentence).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, String sentence)
+	{
+		new ErrorMessage(sentence).send(senders);
 	}
 }
