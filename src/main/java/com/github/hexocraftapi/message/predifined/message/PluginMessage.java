@@ -16,11 +16,12 @@ package com.github.hexocraftapi.message.predifined.message;
  *    limitations under the License.
  */
 
+import com.github.hexocraftapi.message.Line;
 import com.github.hexocraftapi.message.Message;
 import com.github.hexocraftapi.message.predifined.MessageColor;
 import com.github.hexocraftapi.message.predifined.prefix.PluginPrefix;
-import com.github.hexocraftapi.message.Line;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -68,13 +69,63 @@ public class PluginMessage extends Message
 		}
 	}
 
+	public static void toConsole(JavaPlugin plugin, String text)
+	{
+		new PluginMessage(plugin, text).send(plugin.getServer().getConsoleSender());
+	}
+
+	public static void toConsole(JavaPlugin plugin, String text, ChatColor color)
+	{
+		new PluginMessage(plugin, text, color).send(plugin.getServer().getConsoleSender());
+	}
+
 	public static void toConsole(JavaPlugin plugin, String text, ChatColor color, Line... lines)
 	{
 		new PluginMessage(plugin, text, color, lines).send(plugin.getServer().getConsoleSender());
 	}
 
+	public static void toPlayer(Player player, JavaPlugin plugin, String text)
+	{
+		new PluginMessage(plugin, text).send(player);
+	}
+
+	public static void toPlayer(Player player, JavaPlugin plugin, String text, ChatColor color)
+	{
+		new PluginMessage(plugin, text, color).send(player);
+	}
+
 	public static void toPlayer(Player player, JavaPlugin plugin, String text, ChatColor color, Line... lines)
 	{
 		new PluginMessage(plugin, text, color, lines).send(player);
+	}
+
+	public static void toSender(CommandSender sender, JavaPlugin plugin, String text)
+	{
+		new PluginMessage(plugin, text).send(sender);
+	}
+
+	public static void toSender(CommandSender sender, JavaPlugin plugin, String text, ChatColor color)
+	{
+		new PluginMessage(plugin, text, color).send(sender);
+	}
+
+	public static void toSender(CommandSender sender, JavaPlugin plugin, String text, ChatColor color, Line... lines)
+	{
+		new PluginMessage(plugin, text, color, lines).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, JavaPlugin plugin, String text)
+	{
+		new PluginMessage(plugin, text).send(senders);
+	}
+
+	public static void toSenders(CommandSender[] senders, JavaPlugin plugin, String text, ChatColor color)
+	{
+		new PluginMessage(plugin, text, color).send(senders);
+	}
+
+	public static void toSenders(CommandSender[] senders, JavaPlugin plugin, String text, ChatColor color, Line... lines)
+	{
+		new PluginMessage(plugin, text, color, lines).send(senders);
 	}
 }

@@ -39,6 +39,11 @@ public class EmptyMessage extends SimpleMessage
 		new EmptyMessage().send(player);
 	}
 
+	public static void toSender(CommandSender sender)
+	{
+		new EmptyMessage().send(sender);
+	}
+
 	public static void toSenders(CommandSender[] senders)
 	{
 		new EmptyMessage().send(senders);
