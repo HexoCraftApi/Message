@@ -16,8 +16,8 @@ package com.github.hexocraftapi.message.predifined.line.utils;
  *    limitations under the License.
  */
 
-import com.github.hexocraftapi.message.Prefix;
 import com.github.hexocraftapi.message.Line;
+import com.github.hexocraftapi.message.Prefix;
 import org.bukkit.ChatColor;
 
 /**
@@ -34,7 +34,7 @@ public class LineUtils
 
 	public static Line legacyLine(Prefix prefix, char c)
 	{
-		String stripPrefix = ChatColor.stripColor(prefix!=null?prefix.toString():"");
+		String stripPrefix = ChatColor.stripColor(prefix!=null?prefix.toLegacyText():"");
 		int max = CONSOLE_WIDTH - (prefix != null ? stripPrefix.length() + 1 : 0);
 
 		String line = "";

@@ -17,10 +17,10 @@ package com.github.hexocraftapi.message.predifined.line;
  */
 
 import com.github.hexocraftapi.chat.MessageBuilder;
+import com.github.hexocraftapi.message.Line;
 import com.github.hexocraftapi.message.Prefix;
 import com.github.hexocraftapi.message.Sentence;
 import com.github.hexocraftapi.message.Util.FontUtil;
-import com.github.hexocraftapi.message.Line;
 import org.bukkit.ChatColor;
 
 import java.util.Random;

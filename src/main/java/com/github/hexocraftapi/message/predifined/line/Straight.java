@@ -23,8 +23,6 @@ import com.github.hexocraftapi.message.Util.FontUtil;
 import com.github.hexocraftapi.message.predifined.line.utils.LineUtils;
 import org.bukkit.ChatColor;
 
-import static com.github.hexocraftapi.message.predifined.line.utils.LineUtils.legacyLine;
-
 /**
  * @author <b>hexosse</b> (<a href="https://github.comp/hexosse">hexosse on GitHub</a>))
  */
@@ -85,7 +83,7 @@ public class Straight extends Line
 	public String toLegacyText()
 	{
 		String line = super.toLegacyText();
-		if(getPrefix() != null) line += " ";
+		if(getPrefix() != null && line.endsWith(" ")==false) line += " ";
 		line += this.color;
 		line += ChatColor.STRIKETHROUGH;
 		line += LineUtils.legacyLine(getPrefix(), this.c).getSentences().get(0).toLegacyText();

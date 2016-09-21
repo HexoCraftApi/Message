@@ -17,8 +17,8 @@ package com.github.hexocraftapi.message.predifined.message;
  */
 
 import com.github.hexocraftapi.message.Prefix;
-import com.github.hexocraftapi.message.predifined.MessageColor;
 import com.github.hexocraftapi.message.locale.Locale;
+import com.github.hexocraftapi.message.predifined.MessageColor;
 import org.bukkit.entity.Player;
 
 /**
