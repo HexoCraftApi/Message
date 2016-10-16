@@ -16,7 +16,9 @@ package com.github.hexocraftapi.message.predifined.message;
  * limitations under the License.
  */
 
+import com.github.hexocraftapi.message.Line;
 import com.github.hexocraftapi.message.Message;
+import com.github.hexocraftapi.message.Sentence;
 import com.github.hexocraftapi.message.predifined.line.SimpleLine;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -39,6 +41,12 @@ public class SimpleMessage extends Message
 		super();
 		add(new SimpleLine(sentence, color));
 	}
+	public SimpleMessage(Sentence sentence)
+	{
+		super();
+		add(new Line(sentence));
+	}
+
 
 	public static void toConsole(JavaPlugin plugin, String sentence)
 	{
@@ -48,6 +56,11 @@ public class SimpleMessage extends Message
 	public static void toConsole(JavaPlugin plugin, String sentence, ChatColor color)
 	{
 		new SimpleMessage(sentence, color).send(plugin.getServer().getConsoleSender());
+	}
+
+	public static void toConsole(JavaPlugin plugin, Sentence sentence)
+	{
+		new SimpleMessage(sentence).send(plugin.getServer().getConsoleSender());
 	}
 
 	public static void toPlayer(Player player, String sentence)
@@ -60,6 +73,11 @@ public class SimpleMessage extends Message
 		new SimpleMessage(sentence, color).send(player);
 	}
 
+	public static void toPlayer(Player player, Sentence sentence)
+	{
+		new SimpleMessage(sentence).send(player);
+	}
+
 	public static void toSender(CommandSender sender, String sentence)
 	{
 		new SimpleMessage(sentence).send(sender);
@@ -70,6 +88,11 @@ public class SimpleMessage extends Message
 		new SimpleMessage(sentence, color).send(sender);
 	}
 
+	public static void toSender(CommandSender sender, Sentence sentence)
+	{
+		new SimpleMessage(sentence).send(sender);
+	}
+
 	public static void toSenders(CommandSender[] senders, String sentence)
 	{
 		new SimpleMessage(sentence).send(senders);
@@ -78,5 +101,10 @@ public class SimpleMessage extends Message
 	public static void toSenders(CommandSender[] senders, String sentence, ChatColor color)
 	{
 		new SimpleMessage(sentence, color).send(senders);
+	}
+
+	public static void toSenders(CommandSender[] senders, Sentence sentence)
+	{
+		new SimpleMessage(sentence).send(senders);
 	}
 }
