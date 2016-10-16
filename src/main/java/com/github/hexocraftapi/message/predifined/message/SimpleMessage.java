@@ -19,6 +19,7 @@ package com.github.hexocraftapi.message.predifined.message;
 import com.github.hexocraftapi.message.Message;
 import com.github.hexocraftapi.message.predifined.line.SimpleLine;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -57,5 +58,25 @@ public class SimpleMessage extends Message
 	public static void toPlayer(Player player, String sentence, ChatColor color)
 	{
 		new SimpleMessage(sentence, color).send(player);
+	}
+
+	public static void toSender(CommandSender sender, String sentence)
+	{
+		new SimpleMessage(sentence).send(sender);
+	}
+
+	public static void toSender(CommandSender sender, String sentence, ChatColor color)
+	{
+		new SimpleMessage(sentence, color).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, String sentence)
+	{
+		new SimpleMessage(sentence).send(senders);
+	}
+
+	public static void toSenders(CommandSender[] senders, String sentence, ChatColor color)
+	{
+		new SimpleMessage(sentence, color).send(senders);
 	}
 }

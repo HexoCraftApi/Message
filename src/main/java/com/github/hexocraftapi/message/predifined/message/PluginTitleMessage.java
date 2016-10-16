@@ -23,6 +23,7 @@ import com.github.hexocraftapi.message.predifined.MessageColor;
 import com.github.hexocraftapi.message.predifined.line.Straight;
 import com.github.hexocraftapi.message.predifined.line.Title;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -76,5 +77,15 @@ public class PluginTitleMessage extends Message
 	public static void toPlayer(Player player, JavaPlugin plugin, String text, ChatColor color, Line... lines)
 	{
 		new PluginTitleMessage(plugin, text, color, lines).send(player);
+	}
+
+	public static void toSender(CommandSender sender, JavaPlugin plugin, String text, ChatColor color, Line... lines)
+	{
+		new PluginTitleMessage(plugin, text, color, lines).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, JavaPlugin plugin, String text, ChatColor color, Line... lines)
+	{
+		new PluginTitleMessage(plugin, text, color, lines).send(senders);
 	}
 }

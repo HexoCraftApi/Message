@@ -18,6 +18,7 @@ package com.github.hexocraftapi.message.predifined.message;
 
 import com.github.hexocraftapi.message.Prefix;
 import com.github.hexocraftapi.message.predifined.MessageColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -42,5 +43,15 @@ public class WarningPrefixedMessage extends SimplePrefixedMessage
 	public static void toPlayer(Player player, Prefix prefix, String sentence)
 	{
 		new WarningPrefixedMessage(prefix, sentence).send(player);
+	}
+
+	public static void toSender(CommandSender sender, Prefix prefix, String sentence)
+	{
+		new WarningPrefixedMessage(prefix, sentence).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, Prefix prefix, String sentence)
+	{
+		new WarningPrefixedMessage(prefix, sentence).send(senders);
 	}
 }

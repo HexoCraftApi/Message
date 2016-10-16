@@ -19,7 +19,9 @@ package com.github.hexocraftapi.message.predifined.message;
 import com.github.hexocraftapi.message.Prefix;
 import com.github.hexocraftapi.message.locale.Locale;
 import com.github.hexocraftapi.message.predifined.MessageColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author <b>Hexosse</b> (<a href="https://github.com/hexosse">on GitHub</a>))
@@ -31,8 +33,23 @@ public class WarnPermissionPrefixedMessage extends SimplePrefixedMessage
 		super(prefix, Locale.command_no_permission, MessageColor.WARNING.color());
 	}
 
-	public static void toPlayer(Player player, Prefix prefix, String sentence)
+	public static void toConsole(JavaPlugin plugin, Prefix prefix)
+	{
+		new WarnPermissionPrefixedMessage(prefix).send(plugin.getServer().getConsoleSender());
+	}
+
+	public static void toPlayer(Player player, Prefix prefix)
 	{
 		new WarnPermissionPrefixedMessage(prefix).send(player);
+	}
+
+	public static void toSender(CommandSender sender, Prefix prefix)
+	{
+		new WarnPermissionPrefixedMessage(prefix).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, Prefix prefix)
+	{
+		new WarnPermissionPrefixedMessage(prefix).send(senders);
 	}
 }

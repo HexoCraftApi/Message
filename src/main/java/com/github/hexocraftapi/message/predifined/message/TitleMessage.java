@@ -41,6 +41,11 @@ public class TitleMessage extends Message
 		new TitleMessage(title).send(player);
 	}
 
+	public static void toSender(CommandSender sender, Title title)
+	{
+		new TitleMessage(title).send(sender);
+	}
+
 	public static void toSenders(CommandSender[] senders, Title title)
 	{
 		new TitleMessage(title).send(senders);

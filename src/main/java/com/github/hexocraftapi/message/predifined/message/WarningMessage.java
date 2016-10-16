@@ -17,6 +17,7 @@ package com.github.hexocraftapi.message.predifined.message;
  */
 
 import com.github.hexocraftapi.message.predifined.MessageColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -41,5 +42,15 @@ public class WarningMessage extends SimpleMessage
 	public static void toPlayer(Player player, String sentence)
 	{
 		new WarningMessage(sentence).send(player);
+	}
+
+	public static void toSender(CommandSender sender, String sentence)
+	{
+		new WarningMessage(sentence).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, String sentence)
+	{
+		new WarningMessage(sentence).send(senders);
 	}
 }

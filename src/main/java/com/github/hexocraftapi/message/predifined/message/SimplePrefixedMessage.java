@@ -20,6 +20,7 @@ import com.github.hexocraftapi.message.Message;
 import com.github.hexocraftapi.message.Prefix;
 import com.github.hexocraftapi.message.predifined.line.SimplePrefixLine;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -71,5 +72,25 @@ public class SimplePrefixedMessage extends Message
 	public static void toPlayer(Player player, Prefix prefix, String sentence, ChatColor color)
 	{
 		new SimplePrefixedMessage(prefix, sentence, color).send(player);
+	}
+
+	public static void toSender(CommandSender sender, Prefix prefix, String sentence)
+	{
+		new SimplePrefixedMessage(prefix, sentence).send(sender);
+	}
+
+	public static void toSender(CommandSender sender, Prefix prefix, String sentence, ChatColor color)
+	{
+		new SimplePrefixedMessage(prefix, sentence, color).send(sender);
+	}
+
+	public static void toSenders(CommandSender[] senders, Prefix prefix, String sentence)
+	{
+		new SimplePrefixedMessage(prefix, sentence).send(senders);
+	}
+
+	public static void toSenders(CommandSender[] senders, Prefix prefix, String sentence, ChatColor color)
+	{
+		new SimplePrefixedMessage(prefix, sentence, color).send(senders);
 	}
 }

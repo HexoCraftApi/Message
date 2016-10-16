@@ -16,11 +16,8 @@ package com.github.hexocraftapi.message.predifined.message;
  * limitations under the License.
  */
 
-import com.github.hexocraftapi.message.Line;
-import com.github.hexocraftapi.message.Prefix;
 import com.github.hexocraftapi.message.predifined.MessageColor;
 import com.github.hexocraftapi.message.predifined.prefix.PluginPrefix;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
