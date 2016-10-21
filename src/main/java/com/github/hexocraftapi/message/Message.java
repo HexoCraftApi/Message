@@ -19,6 +19,7 @@ package com.github.hexocraftapi.message;
 import com.github.hexocraftapi.chat.Chat;
 import com.github.hexocraftapi.chat.MessageBuilder;
 import com.github.hexocraftapi.chat.component.BaseComponent;
+import com.github.hexocraftapi.util.PlayerUtil;
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -126,7 +127,7 @@ public class Message
 
 	public void broadcast()
 	{
-		for(Player player : Bukkit.getServer().getOnlinePlayers())
+		for(Player player : PlayerUtil.getOnlinePlayers())
 			sendToPlayer(player);
 	}
 
