@@ -133,7 +133,7 @@ public class Line
 		return FontUtil.stringWidth(sl);
 	}
 
-	private int lineLength(Line line)
+	public int lineLength()
 	{
 		int spaceLength = 1;
 		int prefixLength = (this.prefix != null) ? ChatColor.stripColor(this.prefix.toLegacyText()).length() + spaceLength : 0;
@@ -154,7 +154,7 @@ public class Line
 		 * ********************************************************************************************************* */
 		/*
 		// The line fit
-		if(lineLength(this) <= Chat.NO_WRAP_CHAT_PAGE_WIDTH) return build(builder, this);
+		if(lineLength() <= Chat.NO_WRAP_CHAT_PAGE_WIDTH) return build(builder, this);
 
 		// Oups the line is too big.
 
