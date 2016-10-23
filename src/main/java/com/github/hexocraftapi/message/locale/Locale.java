@@ -38,6 +38,7 @@ public class Locale
 	public static String command_use_help;
 
 	public static String argument_argument;
+	public static String argument_arguments;
 	public static String argument_description;
 	public static String argument_mandatory;
 
@@ -76,6 +77,7 @@ public class Locale
 		command_use_help = "Use help for more details";
 
 		argument_argument = "Argument";
+		argument_arguments = "Arguments";
 		argument_description = "Description";
 		argument_mandatory = "This argument is required";
 
@@ -103,6 +105,7 @@ public class Locale
 		command_use_help = "Utilisez l'aide pour plus de détails";
 
 		argument_argument = "Argument";
+		argument_arguments = "Arguments";
 		argument_description = "Description";
 		argument_mandatory = "Cette argument est obligatoire";
 
