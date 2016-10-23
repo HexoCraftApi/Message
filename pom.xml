@@ -22,10 +22,11 @@
 
     <groupId>com.github.hexocraftapi</groupId>
     <artifactId>message</artifactId>
+    <name>Message</name>
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <description>Message library</description>
-    <url>https://github.com/HexoCraftApi/Message</url>
+    <url>https://github.com/HexoCraftApi/${project.name}</url>
 
 
     <!-- License -->
@@ -40,14 +41,14 @@
 
     <!-- scm -->
     <scm>
-        <url>http://github.com/HexoCraftApi/Message</url>
-        <connection>scm:git:git://github.com/HexoCraftApi/Message.git</connection>
-        <developerConnection>scm:git:git@github.com:HexoCraftApi/Message.git</developerConnection>
+        <url>http://github.com/HexoCraftApi/${project.name}</url>
+        <connection>scm:git:git://github.com/HexoCraftApi/${project.name}.git</connection>
+        <developerConnection>scm:git:git@github.com:HexoCraftApi/${project.name}.git</developerConnection>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/HexoCraftApi/Message/issues</url>
+        <url>https://github.com/HexoCraftApi/${project.name}/issues</url>
     </issueManagement>
 
 
@@ -225,10 +226,21 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <!-- utterly useless artifact from shade 2.x -->
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <!-- Le fichier jar d'origine est renommé en original-XXXX.jar -->
-                            <shadedArtifactAttached>false</shadedArtifactAttached>
+                            <filters>
+                                <filter>
+                                    <artifact>com.github.hexocraftapi:util</artifact>
+                                    <excludes>
+                                        <exclude>com/github/hexocraftapi/reflection/**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.github.hexocraftapi:chat</artifact>
+                                    <excludes>
+                                        <exclude>com/github/hexocraftapi/reflection/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
                         </configuration>
                     </execution>
                 </executions>
