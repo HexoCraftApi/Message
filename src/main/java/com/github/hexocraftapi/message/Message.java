@@ -143,8 +143,11 @@ public class Message
 			BaseComponent[] message = builder.create();
 
 			// Send the message
-			for(Player player : players)
-				Chat.sendMessage(player, message);
+			if(message.length>0)
+			{
+				for(Player player : players)
+					Chat.sendMessage(player, message);
+			}
 		}
 	}
 
@@ -153,10 +156,13 @@ public class Message
 		for(Line line : lines)
 		{
 			String legacy = line.toLegacyText();
-			receiver.sendMessage(legacy);
+			if(legacy.isEmpty()==false)
+			{
+				receiver.sendMessage(legacy);
 
-			if(this.isLog())
-				Logger.getLogger("Minecraft").log(this.severity, ChatColor.stripColor(legacy));
+				if(this.isLog())
+					Logger.getLogger("Minecraft").log(this.severity, ChatColor.stripColor(legacy));
+			}
 		}
 	}
 }
