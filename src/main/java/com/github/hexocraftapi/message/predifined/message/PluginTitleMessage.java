@@ -53,20 +53,44 @@ public class PluginTitleMessage extends Message
 		build(color, lines);
 	}
 
+	@Override
+	public Message add(Line line)
+	{
+		return super.add(getLines().size()-1, line);
+	}
+
+	@Override
+	public Message add(Line... lines)
+	{
+		return super.add(getLines().size()-1, lines);
+	}
+
+	@Override
+	public Message add(String message)
+	{
+		return super.add(getLines().size()-1, message);
+	}
+
+	@Override
+	public Message add(String message, ChatColor color)
+	{
+		return super.add(getLines().size()-1, message, color);
+	}
+
 	private void build(ChatColor color, Line... lines)
 	{
 		// Title : line first
-		this.add(new Title('-',ChatColor.AQUA,  new Sentence(plugin.getDescription().getName() + " " + plugin.getDescription().getVersion())));
+		super.add(new Title('-',ChatColor.AQUA,  new Sentence(plugin.getDescription().getName() + " " + plugin.getDescription().getVersion())));
 
 		// Line
-		this.add(new Line(this.text, color));
+		super.add(new Line(this.text, color));
 
 		// Lines
 		for(Line line : lines)
-			this.add(line);
+			super.add(line);
 
 		// Straight line last
-		this.add(new Straight('-', ChatColor.AQUA));
+		super.add(new Straight('-', ChatColor.AQUA));
 	}
 
 	public static void toConsole(JavaPlugin plugin, String text, ChatColor color, Line... lines)
