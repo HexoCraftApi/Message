@@ -62,10 +62,23 @@ public class Message
 		return this;
 	}
 
+	public Message add(int index, Line line)
+	{
+		this.lines.add(index, line);
+		return this;
+	}
+
 	public Message add(Line... lines)
 	{
 		for(Line line : lines)
 			this.lines.add(line);
+		return this;
+	}
+
+	public Message add(int index, Line... lines)
+	{
+		for(Line line : lines)
+			this.lines.add(index++, line);
 		return this;
 	}
 
@@ -76,10 +89,22 @@ public class Message
 		return this;
 	}
 
+	public Message add(int index, String message)
+	{
+		this.lines.add(index, new Line(message));
+		return this;
+	}
+
 	public Message add(String message, ChatColor color)
 	{
 		//todo : FontUtil.wordWrap
 		this.lines.add(new Line(message, color));
+		return this;
+	}
+
+	public Message add(int index, String message, ChatColor color)
+	{
+		this.lines.add(index, new Line(message, color));
 		return this;
 	}
 
