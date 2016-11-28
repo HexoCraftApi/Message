@@ -240,7 +240,7 @@
                                     </excludes>
                                 </filter>
                             </filters>
-                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
                 </executions>
