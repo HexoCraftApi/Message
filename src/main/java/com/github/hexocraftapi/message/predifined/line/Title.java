@@ -143,7 +143,7 @@ public class Title extends Line
 		{
 			Sentence sentence = sentences.get(i);
 			sentence.build(builder);
-			if(i > 0 && i < sentences.size() - 1) builder.append(" ");
+			if(sentence.getSentence().length()> 0 && i < sentences.size() - 1) builder.append(" ");
 		}
 
 		/*String line = "";
