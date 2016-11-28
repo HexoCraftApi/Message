@@ -132,11 +132,10 @@ public class Title extends Line
 	{
 		// Add prefix
 		if(getPrefix() != null)
+		{
 			getPrefix().build(builder);
-
-		// Space between prefix and line
-		if(getPrefix() != null)
 			builder.append(" ");
+		}
 
 		// Add sentences
 		List<Sentence> sentences = fontTitleLine(getPrefix(), this.c, this.title).getSentences();
@@ -144,8 +143,7 @@ public class Title extends Line
 		{
 			Sentence sentence = sentences.get(i);
 			sentence.build(builder);
-			if(i == 0) builder.append(" ");
-			if(i == sentences.size() - 1) builder.append(" ");
+			if(i > 0 && i < sentences.size() - 1) builder.append(" ");
 		}
 
 		/*String line = "";
