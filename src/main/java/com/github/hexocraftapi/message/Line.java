@@ -19,6 +19,7 @@ package com.github.hexocraftapi.message;
 import com.github.hexocraftapi.chat.MessageBuilder;
 import com.github.hexocraftapi.message.Util.FontUtil;
 import com.google.common.collect.Lists;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 
 import java.util.List;
@@ -109,11 +110,7 @@ public class Line
 			prefix = this.prefix.toLegacyText();
 
 		// Sentences
-		for(Sentence sentence : this.sentences)
-		{
-			sentences += (sentences.isEmpty()==false) ? " " :"";
-			sentences += sentence.toLegacyText();
-		}
+		sentences = Sentence.joinLegacyText(this.sentences, "");
 
 		// Line
 		line = prefix + (prefix.length()==0?"":" ") + sentences;
@@ -296,14 +293,7 @@ public class Line
 			builder.append(" ", MessageBuilder.FormatRetention.NONE);
 
 		// Add sentences
-		for(int i = 0; i < line.getSentences().size(); i++)
-		{
-			if(i>0 && i<=line.getSentences().size()-1)
-				builder.append(" ");
-
-			Sentence sentence = sentences.get(i);
-			sentence.build(builder);
-		}
+		Sentence.join(builder, line.getSentences(), " ");
 
 		return builder;
 	}

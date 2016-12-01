@@ -22,6 +22,8 @@ import com.github.hexocraftapi.chat.event.ClickEvent;
 import com.github.hexocraftapi.chat.event.HoverEvent;
 import org.bukkit.ChatColor;
 
+import java.util.List;
+
 /**
  * @author <b>Hexosse</b> (<a href="https://github.com/hexosse">on GitHub</a>))
  */
@@ -77,7 +79,6 @@ public class Sentence
 		return this;
 	}
 
-
 	public String toLegacyText()
 	{
 		MessageBuilder builder = new MessageBuilder();
@@ -86,6 +87,64 @@ public class Sentence
 
 	public MessageBuilder build(MessageBuilder builder)
 	{
-		return builder.append(this.sentence).color(this.color).event(this.clickEvent).event(this.hoverEvent);
+		return builder.append(this.sentence.trim()).color(this.color).event(this.clickEvent).event(this.hoverEvent);
+	}
+
+	public static MessageBuilder join(MessageBuilder builder, List<Sentence> sentences, String join)
+	{
+		if(sentences == null)
+			return builder;
+
+		for(int i = 0; i < sentences.size(); i++)
+		{
+			Sentence sentence = sentences.get(i);
+
+			if(i > 0 && i < sentences.size() && BaseComponent.toPlainText(builder.create()).trim().length() > 0 && sentences.get(i).getSentence().trim().length() > 0)
+				builder.append(join);
+
+			sentence.build(builder);
+		}
+
+		return builder;
+	}
+
+	public static String joinText(List<Sentence> sentences, String join)
+	{
+		if(sentences == null)
+			return null;
+
+		String joinedString = "";
+
+		for(int i = 0; i < sentences.size(); i++)
+		{
+			Sentence sentence = sentences.get(i);
+
+			if(i > 0 && i < sentences.size() && joinedString.trim().length() > 0 && sentences.get(i).getSentence().trim().length() > 0)
+				joinedString += join;
+
+			joinedString += sentence.getSentence().trim();
+		}
+
+		return joinedString;
+	}
+
+	public static String joinLegacyText(List<Sentence> sentences, String join)
+	{
+		if(sentences == null)
+			return null;
+
+		String joinedString = "";
+
+		for(int i = 0; i < sentences.size(); i++)
+		{
+			Sentence sentence = sentences.get(i);
+
+			if(i > 0 && i < sentences.size() && joinedString.trim().length() > 0 && sentences.get(i).toLegacyText().trim().length() > 0)
+				joinedString += join;
+
+			joinedString += sentence.toLegacyText().trim();
+		}
+
+		return joinedString;
 	}
 }

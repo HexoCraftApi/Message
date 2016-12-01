@@ -62,13 +62,12 @@ public class Title extends Line
 		this.title = Arrays.asList(sentences);
 	}
 
-	private Line fontTitleLine(final Prefix prefix, final char c, final List<Sentence> title)
+	private Line fontTitleLine(final Prefix prefix, final char c, final List<Sentence> titles)
 	{
-		String legacyTitle = "";
-		for(Sentence sentence : title) legacyTitle += sentence.getSentence();
+		String legacyTitle = Sentence.joinText(titles, " ");
 
 		int prefixWidth = FontUtil.stringWidth(prefix != null ? prefix.toLegacyText() : "");
-		int titleWidth = FontUtil.stringWidth(title != null ? legacyTitle.toString() : "");
+		int titleWidth = FontUtil.stringWidth(titles != null ? legacyTitle.toString() : "");
 		int charWidth = FontUtil.stringWidth("" + c);
 		int spaceWidth = FontUtil.stringWidth(" ");
 		boolean strike = false;
@@ -92,7 +91,7 @@ public class Title extends Line
 
 		List<Sentence> fullTitle = new ArrayList<>();
 		fullTitle.add(line1);
-		for(Sentence sentence : title) fullTitle.add(sentence);
+		for(Sentence sentence : titles) fullTitle.add(sentence);
 		fullTitle.add(line2);
 
 		return new Line(prefix, fullTitle);
@@ -139,12 +138,7 @@ public class Title extends Line
 
 		// Add sentences
 		List<Sentence> sentences = fontTitleLine(getPrefix(), this.c, this.title).getSentences();
-		for(int i=0; i<sentences.size(); i++)
-		{
-			Sentence sentence = sentences.get(i);
-			sentence.build(builder);
-			if(sentence.getSentence().length()> 0 && i < sentences.size() - 1) builder.append(" ");
-		}
+		Sentence.join(builder, sentences, " ");
 
 		/*String line = "";
 		line += (this.color != null ? this.color : "");
