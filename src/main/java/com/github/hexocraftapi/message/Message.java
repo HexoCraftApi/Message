@@ -156,6 +156,12 @@ public class Message
 			sendToPlayer(player);
 	}
 
+	public void toOps()
+	{
+		for(Player player : PlayerUtil.getOnlineOpPlayers())
+			sendToPlayer(player);
+	}
+
 	private void sendToPlayer(final Player... players)
 	{
 		for(Line line : lines)
