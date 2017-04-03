@@ -25,7 +25,7 @@ import org.bukkit.ChatColor;
  */
 public class LineUtils
 {
-	public static int CONSOLE_WIDTH = 120;
+	public static int CONSOLE_WIDTH = 76;
 
 	public static Line legacyLine(char c)
 	{
